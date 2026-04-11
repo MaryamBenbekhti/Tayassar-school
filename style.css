@@ -154,6 +154,52 @@ input, select, textarea {
 }
 
 
+
+    .section-padding { padding: 50px 5%; }
+    .hero h1 { font-size: 2.5rem; }
+    .grid { grid-template-columns: repeat(2, 1fr); } /* Show 2 columns instead of 3 */
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media (max-width: 768px) {
+  
+    nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+        gap: 10px;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+
+    
+    .grid { 
+        grid-template-columns: 1fr; 
+    }
+
+
+    .hero { height: 60vh; }
+    .hero h1 { font-size: 1.8rem; }
+    .btn-outline { margin-left: 0; margin-top: 10px; width: 100%; }
+    .btn-primary { width: 100%; }
+
+ 
+    .nav-logo { height: 30px; }
+}
+
+
+@media (max-width: 480px) {
+    .nav-links { font-size: 14px; }
+    .card { padding: 20px; }
+}
+
 .nav-logo:hover {
     filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
     transition: 0.3s ease;
