@@ -204,3 +204,13 @@ img {
     filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
     transition: 0.3s ease;
 }
+.socials a {
+  color: white;
+  font-size: 24px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #c8a951;
+}
