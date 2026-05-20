@@ -1,7 +1,7 @@
 /* script.js - Updated for Tayassar School */
 
 // 1. Language Switch Toggle
-// 1. Three-Way Language Switch Toggle (EN -> AR -> FR)
+// Global Language Switch Logic (EN -> AR -> FR)
 function toggleLanguage() {
     const btn = document.querySelector('.lang-switch');
     if (!btn) return;
@@ -9,7 +9,7 @@ function toggleLanguage() {
     let currentLang = btn.textContent.trim();
     let nextLang = 'EN';
 
-    // Cycle through languages
+    // 1. Cycle through languages
     if (currentLang === 'EN') {
         nextLang = 'AR';
     } else if (currentLang === 'AR') {
@@ -17,6 +17,44 @@ function toggleLanguage() {
     } else if (currentLang === 'FR') {
         nextLang = 'EN';
     }
+
+    // Update the button indicator text
+    btn.textContent = nextLang;
+
+    // 2. Update Document Text and Form Directions
+    const translateElements = document.querySelectorAll('[data-en]');
+    
+    translateElements.forEach(el => {
+        // Handle regular text content inside elements
+        if (nextLang === 'AR') {
+            el.textContent = el.getAttribute('data-ar') || el.getAttribute('data-en');
+        } else if (nextLang === 'FR') {
+            el.textContent = el.getAttribute('data-fr') || el.getAttribute('data-en');
+        } else {
+            el.textContent = el.getAttribute('data-en');
+        }
+
+        // Handle dynamic input/textarea placeholder text translations
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            if (nextLang === 'AR') {
+                el.setAttribute('placeholder', el.getAttribute('data-ar') || el.getAttribute('data-en'));
+            } else if (nextLang === 'FR') {
+                el.setAttribute('placeholder', el.getAttribute('data-fr') || el.getAttribute('data-en'));
+            } else {
+                el.setAttribute('placeholder', el.getAttribute('data-en'));
+            }
+        }
+    });
+
+    // 3. Adjust Layout Flow (RTL for Arabic, LTR for English/French)
+    if (nextLang === 'AR') {
+        document.body.setAttribute('dir', 'rtl');
+        document.body.classList.add('arabic-font');
+    } else {
+        document.body.setAttribute('dir', 'ltr');
+        document.body.classList.remove('arabic-font');
+    }
+}
 
     // Update the button text to show the active language
     btn.textContent = nextLang;
