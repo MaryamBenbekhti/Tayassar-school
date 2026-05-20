@@ -84,10 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = 'all 0.8s ease-out';
     });
 
-    // Run once on load
     revealCards();
 
-    // Active Link Highlighter
     document.querySelectorAll('.nav-links a').forEach(link => {
         if (link.href === window.location.href) {
             link.classList.add('active');
@@ -95,5 +93,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Listen for scroll events safely
 window.addEventListener('scroll', revealCards);
