@@ -1,3 +1,8 @@
+alert("Script file is connected successfully!");
+
+// Your global language switch logic continues below...
+function toggleLanguage() {
+...
 /* script.js - Updated for Tayassar School */
 
 // 1. Language Switch Toggle
