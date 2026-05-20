@@ -8,7 +8,6 @@ function toggleLanguage() {
     let currentLang = btn.textContent.trim();
     let nextLang = 'EN';
 
-    // Precise Language Cycle Logic
     if (currentLang === 'EN') {
         nextLang = 'AR';
     } else if (currentLang === 'AR') {
@@ -17,10 +16,8 @@ function toggleLanguage() {
         nextLang = 'EN';
     }
 
-    // Update the button indicator text visually
     btn.textContent = nextLang;
 
-    // Fetch all elements tagged for translation
     const translateElements = document.querySelectorAll('[data-en]');
     
     translateElements.forEach(el => {
@@ -33,20 +30,14 @@ function toggleLanguage() {
             if (nextLang === 'AR') targetedText = arText;
             if (nextLang === 'FR') targetedText = frText;
 
-            // Handle standard input fields & placeholders safely
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.setAttribute('placeholder', targetedText);
-            } 
-            // Handle select dropdown options safely without destroying Formspree values
-            else if (el.tagName === 'OPTION') {
+            } else if (el.tagName === 'OPTION') {
                 el.text = targetedText;
-            } 
-            // Handle regular structural elements
-            else {
+            } else {
                 el.innerHTML = targetedText;
             }
 
-            // Manage specific Arabic styling classes safely
             if (nextLang === 'AR') {
                 el.classList.add('arabic-text');
             } else {
@@ -57,7 +48,6 @@ function toggleLanguage() {
         }
     });
 
-    // Dynamic RTL Layout Toggling
     if (nextLang === 'AR') {
         document.body.setAttribute('dir', 'rtl');
         document.body.classList.add('arabic-font');
@@ -68,10 +58,9 @@ function toggleLanguage() {
 }
 
 // ==========================================
-// 2. Scroll Reveal Animation
+// 2. Scroll Reveal Animation Mechanics
 // ==========================================
-// This makes the cards fade in smoothly as you scroll down
-const revealCards = () => {
+function revealCards() {
     const cards = document.querySelectorAll('.card, .trial-banner');
     cards.forEach(card => {
         const cardTop = card.getBoundingClientRect().top;
@@ -82,13 +71,12 @@ const revealCards = () => {
             card.style.transform = 'translateY(0)';
         }
     });
-};
+}
 
 // ==========================================
-// 3. Initialize Elements & Event Listeners
+// 3. Document Initialization & Listeners
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Sets the starting position for animations
     const cards = document.querySelectorAll('.card, .trial-banner');
     cards.forEach(card => {
         card.style.opacity = '0';
@@ -96,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = 'all 0.8s ease-out';
     });
 
-    // Run once on load in case elements are already in view
+    // Run once on load
     revealCards();
 
-    // Active Link Highlighter: Underlines the current page in the navbar
+    // Active Link Highlighter
     document.querySelectorAll('.nav-links a').forEach(link => {
         if (link.href === window.location.href) {
             link.classList.add('active');
@@ -107,5 +95,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Listen for scroll events
+// Listen for scroll events safely
 window.addEventListener('scroll', revealCards);
