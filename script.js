@@ -5,14 +5,11 @@
 // 1. Language Switch Toggle
 // Global Language Switch Logic (EN -> AR -> FR)
 // Global Language Switch Logic (Error-Tolerant Version)
+// Global Language Switch Logic (Form-Protected Version)
 function toggleLanguage() {
     const btn = document.querySelector('.lang-switch');
-    if (!btn) {
-        console.error("Language switcher button (.lang-switch) not found in the DOM.");
-        return;
-    }
+    if (!btn) return;
 
-    // Trim out any potential hidden code-spaces or line breaks safely
     let currentLang = btn.textContent.trim();
     let nextLang = 'EN';
 
@@ -28,12 +25,11 @@ function toggleLanguage() {
     // Update the button indicator text visually
     btn.textContent = nextLang;
 
-    // 2. Fetch all components tagged for translation
+    // 2. Fetch all elements tagged for translation
     const translateElements = document.querySelectorAll('[data-en]');
     
     translateElements.forEach(el => {
         try {
-            // Get text strings safely, fallback to English if one language is completely blank
             const enText = el.getAttribute('data-en') || '';
             const arText = el.getAttribute('data-ar') || enText;
             const frText = el.getAttribute('data-fr') || enText;
@@ -42,15 +38,20 @@ function toggleLanguage() {
             if (nextLang === 'AR') targetedText = arText;
             if (nextLang === 'FR') targetedText = frText;
 
-            // Handle standard input fields & placeholders
+            // Handle standard input fields & placeholders safely
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.setAttribute('placeholder', targetedText);
-            } else {
-                // Preserves structural breaks inside elements like headings safely
+            } 
+            // Handle select dropdown options safely without destroying Formspree values
+            else if (el.tagName === 'OPTION') {
+                el.text = targetedText;
+            } 
+            // Handle regular structural elements
+            else {
                 el.innerHTML = targetedText;
             }
         } catch (error) {
-            console.warn("Skipped translating an invalid or corrupted element node:", error);
+            console.warn("Skipped translating element:", error);
         }
     });
 
