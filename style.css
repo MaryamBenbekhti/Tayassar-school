@@ -214,3 +214,40 @@ img {
 .socials a:hover {
   color: #c8a951;
 }
+/* Language Specific Layout Adjustments */
+body[dir="rtl"] {
+    text-align: right;
+}
+
+/* Ensure font family reads beautifully when Arabic is toggled */
+body.arabic-font {
+    font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fix navbar flow and social items order for right-to-left layout */
+body[dir="rtl"] .nav-links, 
+body[dir="rtl"] .socials {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+
+body[dir="rtl"] .card {
+    text-align: right !important;
+}
+
+/* Make sure the language button stays clean and prominent */
+.lang-switch {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 12px;
+    border: 1px solid var(--primary);
+    background: transparent;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.lang-switch:hover {
+    background: var(--primary);
+    color: white;
+}
