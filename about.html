@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Tayassar School</title>
+    <title data-en="About Us | Tayassar School" data-ar="من نحن | مدرسة تيسر" data-fr="À Propos | École Tayassar">About Us | Tayassar School</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,32 +16,60 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="teachers.html">Teachers</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">Home</a></li>
+            <li><a href="about.html" data-en="About" data-ar="من نحن" data-fr="À Propos" class="active">About</a></li>
+            <li><a href="courses.html" data-en="Courses" data-ar="دروسنا" data-fr="Cours">Courses</a></li>
+            <li><a href="teachers.html" data-en="Teachers" data-ar="المعلمون" data-fr="Enseignants">Teachers</a></li>
+            <li><a href="booking.html" data-en="Booking" data-ar="الحجز" data-fr="Réservation">Booking</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا" data-fr="Contact">Contact</a></li>
         </ul>
         <button class="lang-switch" onclick="toggleLanguage()">EN</button>
     </nav>
 
     <header style="background: var(--primary); color: white; padding: 60px 10%; text-align: center;">
-        <h1 style="font-size: 2.8rem; margin-bottom: 10px;">Our Story & Mission</h1>
-        <p style="font-size: 1.2rem; opacity: 0.9;">Bridging the gap between the heart and the Holy Quran.</p>
+        <h1 style="font-size: 2.8rem; margin-bottom: 10px;" 
+            data-en="Our Story & Mission" 
+            data-ar="قصتنا ورسالتنا" 
+            data-fr="Notre Histoire & Mission">
+            Our Story & Mission
+        </h1>
+        <p style="font-size: 1.2rem; opacity: 0.9;" 
+           data-en="Bridging the gap between the heart and the Holy Quran." 
+           data-ar="جسر الفجوة بين القلب والقرآن الكريم." 
+           data-fr="Combler le fossé entre le cœur et le Saint Coran.">
+           Bridging the gap between the heart and the Holy Quran.
+        </p>
     </header>
 
-    <section class="section-padding">
+    <section class="section-padding" dir="ltr">
         <div class="grid" style="align-items: center;">
             <div>
-                <h2 style="color: var(--primary); margin-bottom: 20px;">The Meaning of "Tayassar"</h2>
-                <p>In Arabic, <em>Tayassar</em> means "to become easy." We believe that the language of the Quran and the words of Allah should be accessible to every Muslim, regardless of their native tongue or background.</p>
+                <h2 style="color: var(--primary); margin-bottom: 20px;" 
+                    data-en="The Meaning of 'Tayassar'" 
+                    data-ar="معنى كلمة 'تيسر'" 
+                    data-fr="La Signification de 'Tayassar'">
+                    The Meaning of "Tayassar"
+                </h2>
+                <p data-en="In Arabic, Tayassar means 'to become easy.' We believe that the language of the Quran and the words of Allah should be accessible to every Muslim, regardless of their native tongue or background."
+                   data-ar="تعني كلمة تيسر في اللغة العربية 'أصبح سهلاً'. ونحن نؤمن بأن لغة القرآن وكلمات الله يجب أن تكون في متناول كل مسلم، بغض النظر عن لغته الأم أو خلفيته."
+                   data-fr="En arabe, Tayassar signifie « devenir facile ». Nous pensons que la langue du Coran et les paroles d'Allah devraient être accessibles à tout musulman, indépendamment de sa langue maternelle ou de son origine.">
+                   In Arabic, <em>Tayassar</em> means "to become easy." We believe that the language of the Quran and the words of Allah should be accessible to every Muslim, regardless of their native tongue or background.
+                </p>
                 <br>
-                <p>Tayassar School was founded to solve a common challenge: many non-Arabic speaking Muslims feel a distance from the Quran because of the language barrier. Our mission is to remove that barrier through <strong>simple, step-by-step, and interactive learning.</strong></p>
+                <p data-en="Tayassar School was founded to solve a common challenge: many non-Arabic speaking Muslims feel a distance from the Quran because of the language barrier. Our mission is to remove that barrier through simple, step-by-step, and interactive learning."
+                   data-ar="تأسست مدرسة تيسر لحل تحدٍ شائع: يشعر العديد من المسلمين غير الناطقين باللغة العربية ببعد عن القرآن بسبب حاجز اللغة. مهمتنا هي إزالة هذا الحاجز من خلال تعلم بسيط وتفاعلي وخطوة بخطوة."
+                   data-fr="L'École Tayassar a été fondée pour répondre à un défi commun : de nombreux musulmans non arabophones se sentent éloignés du Coran à cause de la barrière de la langue. Notre mission est de lever cette barrière grâce à un apprentissage simple, étape par étape et interactif.">
+                   Tayassar School was founded to solve a common challenge: many non-Arabic speaking Muslims feel a distance from the Quran because of the language barrier. Our mission is to remove that barrier through <strong>simple, step-by-step, and interactive learning.</strong>
+                </p>
             </div>
             <div class="card" style="background: var(--light); border-left: 5px solid var(--accent);">
-                <h3 style="color: var(--accent);">Why We Started</h3>
-                <p style="font-style: italic;">"It began with a simple observation: students were struggling with complex grammar before they could even enjoy the beauty of recitation. We decided to flip the script—focusing on love for the Book first, and making the rules follow naturally."</p>
+                <h3 style="color: var(--accent);" data-en="Why We Started" data-ar="لماذا بدأنا" data-fr="Pourquoi Nous Avons Commencé">Why We Started</h3>
+                <p style="font-style: italic;" 
+                   data-en="&ldquo;It began with a simple observation: students were struggling with complex grammar before they could even enjoy the beauty of recitation. We decided to flip the script&mdash;focusing on love for the Book first, and making the rules follow naturally.&rdquo;"
+                   data-ar="&ldquo;بدأ الأمر بملاحظة بسيطة: كان الطلاب يعانون مع القواعد النحوية المعقدة قبل أن يتمكنوا حتى من الاستمتاع بجمال التلاوة. قررنا تغيير الأسلوب، بالتركيز على حب الكتاب أولاً، وجعل القواعد تأتي تبيعاً بشكل طبيعي.&rdquo;"
+                   data-fr="&ldquo;Cela a commencé par un simple constat : les étudiants se battaient avec une grammaire complexe avant même de pouvoir apprécier la beauté de la récitation. Nous avons décidé d'inverser la tendance en nous concentrant d'abord sur l'amour du Livre, les règles découlant naturellement ensuite.&rdquo;">
+                   "It began with a simple observation: students were struggling with complex grammar before they could even enjoy the beauty of recitation. We decided to flip the script—focusing on love for the Book first, and making the rules follow naturally."
+                </p>
             </div>
         </div>
     </section>
@@ -49,41 +77,51 @@
     <section style="background: var(--dark); color: white; padding: 80px 10%;">
         <div class="grid">
             <div style="text-align: center;">
-                <h2 style="color: var(--accent);">Our Mission</h2>
-                <p>To provide world-class Quranic and Arabic education that is flexible, affordable, and spiritually uplifting for students around the globe.</p>
+                <h2 style="color: var(--accent);" data-en="Our Mission" data-ar="رسالتنا" data-fr="Notre Mission">Our Mission</h2>
+                <p data-en="To provide world-class Quranic and Arabic education that is flexible, affordable, and spiritually uplifting for students around the globe."
+                   data-ar="تقديم تعليم قرآني وعربي ذو مستوى عالمي يتميز بالمرونة والتكلفة الميسرة والارتقاء الروحي للطلاب في جميع أنحاء العالم."
+                   data-fr="Fournir une éducation coranique et arabe de classe mondiale, flexible, abordable et spirituellement enrichissante pour les étudiants du monde entier.">
+                   To provide world-class Quranic and Arabic education that is flexible, affordable, and spiritually uplifting for students around the globe.
+                </p>
             </div>
             <div style="text-align: center;">
-                <h2 style="color: var(--accent);">Our Vision</h2>
-                <p>To become the leading global platform where every Muslim can confidently read, understand, and live the message of the Quran.</p>
+                <h2 style="color: var(--accent);" data-en="Our Vision" data-ar="رؤيتنا" data-fr="Notre Vision">Our Vision</h2>
+                <p data-en="To become the leading global platform where every Muslim can confidently read, understand, and live the message of the Quran."
+                   data-ar="أن نصبح المنصة العالمية الرائدة حيث يمكن لكل مسلم قراءة رسالة القرآن وفهمها والعيش بها بكل ثقة."
+                   data-fr="Devenir la plateforme mondiale de premier plan où chaque musulman peut lire, comprendre et vivre le message du Coran en toute confiance.">
+                   To become the leading global platform where every Muslim can confidently read, understand, and live the message of the Quran.
+                </p>
             </div>
         </div>
     </section>
 
     <section class="section-padding" style="text-align: center;">
-        <h2 style="margin-bottom: 40px; color: var(--primary);">Who Is This For?</h2>
+        <h2 style="margin-bottom: 40px; color: var(--primary);" data-en="Who Is This For?" data-ar="لمن هذه الدورة؟" data-fr="À Qui S'adresse Ce Cours?">Who Is This For?</h2>
         <div class="grid">
             <div class="card">
-                <h4>Beginners</h4>
-                <p>If you've never spoken a word of Arabic, we start from the very first letter.</p>
+                <h4 data-en="Beginners" data-ar="المبتدئين" data-fr="Débutants">Beginners</h4>
+                <p data-en="If you've never spoken a word of Arabic, we start from the very first letter."
+                   data-ar="إذا لم تنطق بكلمة عربية من قبل، فنحن نبدأ معك من الحرف الأول تمامًا."
+                   data-fr="Si vous n'avez jamais parlé un mot d'arabe, nous commençons dès la toute première lettre.">
+                   If you've never spoken a word of Arabic, we start from the very first letter.
+                </p>
             </div>
             <div class="card">
-                <h4>Reverts</h4>
-                <p>A welcoming space to learn the foundations of your faith at your own pace.</p>
+                <h4 data-en="Reverts" data-ar="المسلمون الجدد" data-fr="Nouveaux Convertis">Reverts</h4>
+                <p data-en="A welcoming space to learn the foundations of your faith at your own pace."
+                   data-ar="مساحة ترحيبية لتعلم أسس دينك بالشكل الذي يناسب وتيرتك الخاصة."
+                   data-fr="Un espace accueillant pour apprendre les fondements de votre foi à votre propre rythme.">
+                   A welcoming space to learn the foundations of your faith at your own pace.
+                </p>
             </div>
             <div class="card">
-                <h4>Busy Professionals</h4>
-                <p>Our 1-on-1 sessions are designed to fit into your tight schedule.</p>
+                <h4 data-en="Busy Professionals" data-ar="المحترفون المشغولون" data-fr="Professionnels Occupés">Busy Professionals</h4>
+                <p data-en="Our 1-on-1 sessions are designed to fit into your tight schedule."
+                   data-ar="تم تصميم جلساتنا الفردية المباشرة لتناسب جدول أعمالك المزدحم."
+                   data-fr="Nos sessions individuelles sont conçues pour s'adapter à votre emploi du temps chargé.">
+                   Our 1-on-1 sessions are designed to fit into your tight schedule.
+                </p>
             </div>
         </div>
         <div style="margin-top: 50px;">
-            <a href="teachers.html" class="btn btn-primary">Start Your Journey Today</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Tayassar School. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+            <a href="booking.html" class="btn btn-primary" data-en="Start Your Journey Today" data-ar="ابد
