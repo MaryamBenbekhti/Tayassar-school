@@ -249,5 +249,5 @@ body[dir="rtl"] .card {
 
 .lang-switch:hover {
     background: var(--primary);
-    color: white;
+    color: #0f766e;;
 }
