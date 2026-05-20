@@ -4,51 +4,57 @@
 
 // 1. Language Switch Toggle
 // Global Language Switch Logic (EN -> AR -> FR)
+// Global Language Switch Logic (Error-Tolerant Version)
 function toggleLanguage() {
     const btn = document.querySelector('.lang-switch');
-    if (!btn) return;
+    if (!btn) {
+        console.error("Language switcher button (.lang-switch) not found in the DOM.");
+        return;
+    }
 
+    // Trim out any potential hidden code-spaces or line breaks safely
     let currentLang = btn.textContent.trim();
     let nextLang = 'EN';
 
-    // 1. Cycle through languages
+    // 1. Precise Language Cycle Logic
     if (currentLang === 'EN') {
         nextLang = 'AR';
     } else if (currentLang === 'AR') {
         nextLang = 'FR';
-    } else if (currentLang === 'FR') {
+    } else {
         nextLang = 'EN';
     }
 
-    // Update the button indicator text
+    // Update the button indicator text visually
     btn.textContent = nextLang;
 
-    // 2. Update Document Text and Form Directions
+    // 2. Fetch all components tagged for translation
     const translateElements = document.querySelectorAll('[data-en]');
     
     translateElements.forEach(el => {
-        // Handle regular text content inside elements
-        if (nextLang === 'AR') {
-            el.textContent = el.getAttribute('data-ar') || el.getAttribute('data-en');
-        } else if (nextLang === 'FR') {
-            el.textContent = el.getAttribute('data-fr') || el.getAttribute('data-en');
-        } else {
-            el.textContent = el.getAttribute('data-en');
-        }
+        try {
+            // Get text strings safely, fallback to English if one language is completely blank
+            const enText = el.getAttribute('data-en') || '';
+            const arText = el.getAttribute('data-ar') || enText;
+            const frText = el.getAttribute('data-fr') || enText;
 
-        // Handle dynamic input/textarea placeholder text translations
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            if (nextLang === 'AR') {
-                el.setAttribute('placeholder', el.getAttribute('data-ar') || el.getAttribute('data-en'));
-            } else if (nextLang === 'FR') {
-                el.setAttribute('placeholder', el.getAttribute('data-fr') || el.getAttribute('data-en'));
+            let targetedText = enText;
+            if (nextLang === 'AR') targetedText = arText;
+            if (nextLang === 'FR') targetedText = frText;
+
+            // Handle standard input fields & placeholders
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.setAttribute('placeholder', targetedText);
             } else {
-                el.setAttribute('placeholder', el.getAttribute('data-en'));
+                // Preserves structural breaks inside elements like headings safely
+                el.innerHTML = targetedText;
             }
+        } catch (error) {
+            console.warn("Skipped translating an invalid or corrupted element node:", error);
         }
     });
 
-    // 3. Adjust Layout Flow (RTL for Arabic, LTR for English/French)
+    // 3. Dynamic RTL Layout Toggling
     if (nextLang === 'AR') {
         document.body.setAttribute('dir', 'rtl');
         document.body.classList.add('arabic-font');
@@ -57,7 +63,6 @@ function toggleLanguage() {
         document.body.classList.remove('arabic-font');
     }
 }
-
     // Update the button text to show the active language
     btn.textContent = nextLang;
 
