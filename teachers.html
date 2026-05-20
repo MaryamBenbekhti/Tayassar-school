@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
+    <title data-en="Booking | Tayassar School" data-ar="الحجز | مدرسة تيسر" data-fr="Réservation | École Tayassar">Booking | Tayassar School</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav>
         <div class="logo">
             <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
@@ -15,54 +16,70 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="teachers.html"class="active">Teachers</a></li>
-            <li><a href="contact.html" >Contact</a></li>
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">Home</a></li>
+            <li><a href="about.html" data-en="About" data-ar="من نحن" data-fr="À Propos">About</a></li>
+            <li><a href="courses.html" data-en="Courses" data-ar="دروسنا" data-fr="Cours">Courses</a></li>
+            <li><a href="teachers.html" data-en="Teachers" data-ar="المعلمون" data-fr="Enseignants">Teachers</a></li>
+            <li><a href="booking.html" data-en="Booking" data-ar="الحجز" data-fr="Réservation" class="active">Booking</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا" data-fr="Contact">Contact</a></li>
         </ul>
         <button class="lang-switch" onclick="toggleLanguage()">EN</button>
     </nav>
 
-</html>
-<section class="section-padding" style="max-width: 800px; margin: auto;">
-    <div class="card">
-        <h2>Reserve Your Session</h2>
-        <p>Select your preference below to get started.</p>
-        <form action="https://formspree.io/f/xgoqveqv" method="POST">
-            <label>Full Name</label>
-            <input type="text" name="name" id="name" required placeholder="Enter your name">
-             <label>Your Email</label>
-            <input type="email" name="email" id="email" required placeholder="Enter your Email">
-             <label>Your Phone Number </label>
-            <input type="tel" name="phone" id="phone" required placeholder="Enter your Phone Number">
-             
+    <section class="section-padding" style="max-width: 800px; margin: auto;">
+        <div class="card">
+            <h2 data-en="Reserve Your Session" data-ar="احجز جلستك التعليمية" data-fr="Réservez Votre Session">Reserve Your Session</h2>
+            <p data-en="Select your preference below to get started." data-ar="حدد تفضيلاتك أدناه لبدء التعلم." data-fr="Sélectionnez vos préférences ci-dessous pour commencer.">Select your preference below to get started.</p>
+            
+            <form action="https://formspree.io/f/xgoqveqv" method="POST">
+                <label data-en="Full Name" data-ar="الاسم الكامل" data-fr="Nom Complet">Full Name</label>
+                <input type="text" name="name" id="name" required placeholder="Enter your name"
+                       data-en="Enter your name" data-ar="أدخل اسمك" data-fr="Entrez votre nom">
+                
+                <label data-en="Your Email" data-ar="البريد الإلكتروني" data-fr="Votre Adresse E-mail">Your Email</label>
+                <input type="email" name="email" id="email" required placeholder="Enter your Email"
+                       data-en="Enter your Email" data-ar="أدخل بريدك الإلكتروني" data-fr="Entrez votre e-mail">
+                
+                <label data-en="Your Phone Number" data-ar="رقم الهاتف" data-fr="Numéro de Téléphone">Your Phone Number</label>
+                <input type="tel" name="phone" id="phone" required placeholder="Enter your Phone Number"
+                       data-en="Enter your Phone Number" data-ar="أدخل رقم هاتفك" data-fr="Entrez votre numéro de téléphone">
 
-
-            <label>Select Courses</label>
-            <select name="course" id="course">
-                <option>Quran Recitation</option>
-                <option>Arabic Language</option>
-                <option>Tajweed Intensive</option>
+                <label data-en="Select Courses" data-ar="اختر الدورة التدريبية" data-fr="Sélectionnez un Cours">Select Courses</label>
+                <select name="course" id="course">
+                    <option data-en="Quran Recitation" data-ar="تلاوة القرآن الكريم" data-fr="Récitation du Coran">Quran Recitation</option>
+                    <option data-en="Arabic Language" data-ar="اللغة العربية" data-fr="Langue Arabe">Arabic Language</option>
+                    <option data-en="Tajweed Intensive" data-ar="التجويد المكثف" data-fr="Tajweed Intensif">Tajweed Intensive</option>
                 </select>
 
-                <label>Preferred Teacher</label>
+                <label data-en="Preferred Teacher" data-ar="المعلم المفضل" data-fr="Enseignant Préféré">Preferred Teacher</label>
                 <select name="teacher" id="teacher">
-                    <option>Teacher Aziza</option>
-                    <option>Teacher Mohammed Saleh</option>
+                    <option data-en="Teacher Aziza" data-ar="الأستاذة عزيزة" data-fr="Professeur Aziza">Teacher Aziza</option>
+                    <option data-en="Teacher Mohammed Saleh" data-ar="الأستاذ محمد صالح" data-fr="Professeur Mohammed Saleh">Teacher Mohammed Saleh</option>
                 </select>
 
-                <label> Time of Day (Every Thursday)</label>
-                 <select name="time" id="time">
-                <option>Morning 10 am - 11 am </option>
-                <option>Afternoon 12 PM - 1 PM</option>
-                <option>Evening 5 PM - 6 PM</option>
+                <label data-en="Time of Day (Every Thursday)" data-ar="وقت اليوم (كل خميس)" data-fr="Moment de la Journée (Chaque Jeudi)">Time of Day (Every Thursday)</label>
+                <select name="time" id="time">
+                    <option data-en="Morning 10 am - 11 am" data-ar="الصباح ١٠ ص - ١١ ص" data-fr="Matin 10h00 - 11h00">Morning 10 am - 11 am</option>
+                    <option data-en="Afternoon 12 PM - 1 PM" data-ar="الظهر ١٢ م - ١ م" data-fr="Après-midi 12h00 - 13h00">Afternoon 12 PM - 1 PM</option>
+                    <option data-en="Evening 5 PM - 6 PM" data-ar="المساء ٥ م - ٦ م" data-fr="Soir 17h00 - 18h00">Evening 5 PM - 6 PM</option>
                 </select>
 
-                <button type="submit" class="btn btn-primary" style="width: 100% ; margin-top: 20px;"> Confirm Booking</button>
-                </form>
-                </div>
-                </section>
-            </body>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;"
+                        data-en="Confirm Booking" data-ar="تأكيد الحجز" data-fr="Confirmer la Réservation">
+                        Confirm Booking
+                </button>
+            </form>
+        </div>
+    </section>
 
+    <footer>
+        <p data-en="&copy; 2026 Tayassar School. All rights reserved." 
+           data-ar="&copy; ٢٠٢٦ مدرسة تيسر. جميع الحقوق محفوظة." 
+           data-fr="&copy; 2026 École Tayassar. Tous droits réservés.">
+           &copy; 2026 Tayassar School. All rights reserved.
+        </p>
+    </footer>
 
+    <script src="script.js"></script>
+</body>
+</html>
