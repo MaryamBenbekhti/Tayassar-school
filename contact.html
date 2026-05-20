@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact us</title>
-     <link rel="stylesheet" href="style.css">
+    <title data-en="Contact Us | Tayassar School" data-ar="اتصل بنا | مدرسة تيسر" data-fr="Contactez-nous | École Tayassar">Contact Us | Tayassar School</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-  
 
     <nav>
         <div class="logo">
@@ -18,79 +17,113 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="teachers.html">Teachers</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">Home</a></li>
+            <li><a href="about.html" data-en="About" data-ar="من نحن" data-fr="À Propos">About</a></li>
+            <li><a href="courses.html" data-en="Courses" data-ar="دروسنا" data-fr="Cours">Courses</a></li>
+            <li><a href="teachers.html" data-en="Teachers" data-ar="المعلمون" data-fr="Enseignants">Teachers</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا" data-fr="Contact" class="active">Contact</a></li>
         </ul>
         <button class="lang-switch" onclick="toggleLanguage()">EN</button>
     </nav>
 
     <section class="section-padding">
         <div style="text-align: center; margin-bottom: 50px;">
-            <h1 style="color: var(--primary); font-size: 2.5rem;">Get in Touch</h1>
-            <p>Have questions? We are here to help you start your journey.</p>
+            <h1 style="color: var(--primary); font-size: 2.5rem;" 
+                data-en="Get in Touch" 
+                data-ar="تواصل معنا" 
+                data-fr="Contactez-nous">
+                Get in Touch
+            </h1>
+            <p data-en="Have questions? We are here to help you start your journey." 
+               data-ar="لديك أسئلة؟ نحن هنا لمساعدتك في بدء رحلتك التعليمية." 
+               data-fr="Des questions? Nous sommes là pour vous aider à commencer votre parcours.">
+               Have questions? We are here to help you start your journey.
+            </p>
         </div>
 
         <div class="grid">
             <div class="card" style="text-align: left;">
-                <h3 style="color: var(--accent); margin-bottom: 20px;">Contact Information</h3>
+                <h3 style="color: var(--accent); margin-bottom: 20px;" 
+                    data-en="Contact Information" 
+                    data-ar="معلومات الاتصال" 
+                    data-fr="Informations de Contact">
+                    Contact Information
+                </h3>
                 
                 <div style="margin-bottom: 20px;">
-                    <strong>📍 Location:</strong>
-                    <p>Online Worldwide (Based in [Medinah])</p>
+                    <strong data-en="📍 Location:" data-ar="📍 الموقع:" data-fr="📍 Emplacement:">📍 Location:</strong>
+                    <p data-en="Online Worldwide (Based in Medinah)" 
+                       data-ar="عبر الإنترنت حول العالم (المقر في المدينة المنورة)" 
+                       data-fr="En ligne dans le monde entier (Basé à Médine)">
+                       Online Worldwide (Based in Medinah)
+                    </p>
                 </div>
 
                 <div style="margin-bottom: 20px;">
-                    <strong>📧 Email:</strong>
+                    <strong data-en="📧 Email:" data-ar="📧 البريد الإلكتروني:" data-fr="📧 E-mail:">📧 Email:</strong>
                     <p>tayassar.school@gmail.com</p>
                 </div>
 
                 <div style="margin-bottom: 20px;">
-                    <strong>📞 WhatsApp / Phone:</strong>
-                    <p>+966507375067 </p>
+                    <strong data-en="📞 WhatsApp / Phone:" data-ar="📞 واتساب / الهاتف:" data-fr="📞 WhatsApp / Téléphone:">📞 WhatsApp / Phone:</strong>
+                    <p dir="ltr">+966 507375067</p>
                 </div>
 
                 <div style="margin-top: 30px;">
-                    <h4 style="margin-bottom: 10px;">Follow Us</h4>
-                   <div class="socials">
-
-                          <a href="https://www.instagram.com/tayassarschool_?igsh=a3J6ZmcxYjdlcDVh&utm_source=qr" target="_blank">
+                    <h4 style="margin-bottom: 10px;" data-en="Follow Us" data-ar="تابعنا" data-fr="Suivez-nous">Follow Us</h4>
+                    <div class="socials">
+                        <a href="https://www.instagram.com/tayassarschool_?igsh=a3J6ZmcxYjdlcDVh&utm_source=qr" target="_blank">
                             <i class="fa-brands fa-instagram"></i>
-                         </a>
-
-                         <a href="https://t.me/tayassarschool" target="_blank">
+                        </a>
+                        <a href="https://t.me/tayassarschool" target="_blank">
                             <i class="fa-brands fa-telegram"></i>
-                            </a>
-
-                        </div>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="card">
-                <h3 style="color: var(--primary); margin-bottom: 20px;">Send a Message</h3>
+                <h3 style="color: var(--primary); margin-bottom: 20px;" 
+                    data-en="Send a Message" 
+                    data-ar="أرسل لنا رسالة" 
+                    data-fr="Envoyer un Message">
+                    Send a Message
+                </h3>
                 <form action="https://formspree.io/f/xgoqveqv" method="POST">
-                    <input type="text" name="name" id="contactName" placeholder="Your Full Name" required>
-                    <input type="email" name="email" id="contactEmail" placeholder="Your Email Address" required>
-                    <textarea id="contactMessage" name="message" rows="5" placeholder="How can we help you?" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; margin: 10px 0;"></textarea>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <input type="text" name="name" id="contactName" placeholder="Your Full Name" required 
+                           data-en="Your Full Name" data-ar="الاسم الكامل" data-fr="Votre Nom Complet">
+                           
+                    <input type="email" name="email" id="contactEmail" placeholder="Your Email Address" required 
+                           data-en="Your Email Address" data-ar="عنوان البريد الإلكتروني" data-fr="Votre Adresse E-mail">
+                           
+                    <textarea id="contactMessage" name="message" rows="5" placeholder="How can we help you?" required 
+                              data-en="How can we help you?" data-ar="كيف يمكننا مساعدتك؟" data-fr="Comment pouvons-nous vous aider?"
+                              style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; margin: 10px 0;"></textarea>
+                              
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" 
+                            data-en="Send Message" data-ar="إرسال الرسالة" data-fr="Envoyer le Message">
+                            Send Message
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <section style="width: 100%; height: 300px; background: #e5e7eb; display: flex; align-items: center; justify-content: center; color: #6b7280; font-style: italic;">
+    <section style="width: 100%; height: 300px; background: #e5e7eb; display: flex; align-items: center; justify-content: center; color: #6b7280; font-style: italic;" 
+             data-en="[ Tayassar School ]" 
+             data-ar="[ مدرسة تيسر ]" 
+             data-fr="[ École Tayassar ]">
         [ Tayassar School ]
     </section>
 
     <footer>
-        <p>&copy; 2026 Tayassar School. Dedicated to making Arabic & Quran accessible to all.</p>
+        <p data-en="&copy; 2026 Tayassar School. Dedicated to making Arabic & Quran accessible to all." 
+           data-ar="&copy; ٢٠٢٦ مدرسة تيسر. مخصصة لتسهيل تعلم القرآن واللغة العربية للجميع." 
+           data-fr="&copy; 2026 École Tayassar. Dédiée à rendre l'arabe et le Coran accessibles à tous.">
+           &copy; 2026 Tayassar School. Dedicated to making Arabic & Quran accessible to all.
+        </p>
     </footer>
 
-  
-</body>
-</html> 
-    
+    <script src="script.js"></script>
 </body>
 </html>
