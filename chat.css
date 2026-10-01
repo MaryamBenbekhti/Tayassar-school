@@ -42,8 +42,8 @@ body[dir="rtl"] #tayassar-chat-widget {
     position: absolute;
     bottom: 80px;
     right: 0;
-    width: 350px;
-    height: 500px;
+    width: 400px;
+    height: 550px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
