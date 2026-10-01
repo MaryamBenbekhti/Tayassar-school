@@ -243,11 +243,12 @@ body[dir="rtl"] .card {
     padding: 5px 12px;
     border: 1px solid var(--primary);
     background: transparent;
+    color: var(--primary); /* Fix for invisible text on white background */
     border-radius: 4px;
     transition: 0.3s ease;
 }
 
 .lang-switch:hover {
     background: var(--primary);
-    color: #0f766e;;
+    color: white; /* Ensure text is visible when hovering with primary background */
 }
