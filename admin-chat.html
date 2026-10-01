@@ -249,8 +249,8 @@
             if (pass === 'tayassar2026') { // Hardcoded password as requested
                 document.getElementById('auth-gate').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'flex';
-                // Trigger event to load firebase data in module
-                window.dispatchEvent(new Event('adminAuthenticated'));
+                // Chats are now loaded automatically on script start.
+
             } else {
                 document.getElementById('auth-error').style.display = 'block';
             }

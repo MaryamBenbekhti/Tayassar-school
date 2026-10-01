@@ -27,10 +27,9 @@ const sendBtn = document.getElementById('admin-send-btn');
 let activeChatId = null;
 let activeChatListener = null;
 
-// Initialize on auth
-window.addEventListener('adminAuthenticated', () => {
-    loadChats();
-});
+// Automatically load chats on script start
+console.log("admin-chat.js loaded, initializing loadChats()...");
+loadChats();
 
 // Load all chats into sidebar
 function loadChats() {
@@ -38,6 +37,7 @@ function loadChats() {
     
     // Listen for value changes to keep list updated
     onValue(chatsRef, (snapshot) => {
+        console.log("loadChats(): Received snapshot from Firebase", snapshot.val());
         chatList.innerHTML = '';
         const chats = [];
         
@@ -78,6 +78,8 @@ function loadChats() {
             
             chatList.appendChild(div);
         });
+    }, (error) => {
+        console.error("loadChats(): Firebase error:", error);
     });
 }
 
@@ -95,9 +97,14 @@ function openChat(chatId, info) {
     // In SDK modular format, we attach new listeners to specific refs.
     
     const messagesRef = ref(db, `chats/${chatId}/messages`);
+    
+    console.log(`openChat(): Listening for messages on chats/${chatId}/messages`);
+    
     onChildAdded(messagesRef, (snapshot) => {
         const msg = snapshot.val();
         displayMessage(msg.text, msg.sender);
+    }, (error) => {
+        console.error(`openChat(): Firebase error on ${chatId}:`, error);
     });
 }
 
