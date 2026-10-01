@@ -1,0 +1,253 @@
+
+:root {
+    --primary: #065f46;
+    --primary-light: #0f766e;
+    --accent: #d4af37;
+    --light: #f9fafb;
+    --dark: #1f2937;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+
+nav {
+    background: var(--white);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+.lang-switch {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.hero {
+    background: linear-gradient(rgba(6, 95, 70, 0.8), rgba(6, 95, 70, 0.8)), url('bk3.jpg') center/cover;
+   background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary { background: var(--accent); color: var(--white); }
+.btn-outline { border: 2px solid var(--white); color: var(--white); margin-left: 10px; }
+
+.btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+
+.section-padding { padding: 80px 10%; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-bottom: 4px solid transparent;
+    transition: 0.3s;
+}
+
+.card:hover { border-bottom: 4px solid var(--accent); }
+
+
+.trial-banner {
+    background: var(--accent);
+    color: var(--dark);
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 50px 10%;
+    margin-top: 50px;
+}
+
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+.nav-logo {
+    height: 60px; 
+    width: auto;  
+    margin-right: 20px; 
+    vertical-align: middle;
+}
+
+
+
+    .section-padding { padding: 50px 5%; }
+    .hero h1 { font-size: 2.5rem; }
+    .grid { grid-template-columns: repeat(2, 1fr); } /* Show 2 columns instead of 3 */
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media (max-width: 768px) {
+  
+    nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+        gap: 10px;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+
+    
+    .grid { 
+        grid-template-columns: 1fr; 
+    }
+
+
+    .hero { height: 60vh; }
+    .hero h1 { font-size: 1.8rem; }
+    .btn-outline { margin-left: 0; margin-top: 10px; width: 100%; }
+    .btn-primary { width: 100%; }
+
+ 
+    .nav-logo { height: 30px; }
+}
+
+
+@media (max-width: 480px) {
+    .nav-links { font-size: 14px; }
+    .card { padding: 20px; }
+}
+
+.nav-logo:hover {
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+    transition: 0.3s ease;
+}
+.socials a {
+  color: Green;
+  font-size: 24px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #c8a951;
+}
+/* Language Specific Layout Adjustments */
+body[dir="rtl"] {
+    text-align: right;
+}
+
+/* Ensure font family reads beautifully when Arabic is toggled */
+body.arabic-font {
+    font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fix navbar flow and social items order for right-to-left layout */
+body[dir="rtl"] .nav-links, 
+body[dir="rtl"] .socials {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+
+body[dir="rtl"] .card {
+    text-align: right !important;
+}
+
+/* Make sure the language button stays clean and prominent */
+.lang-switch {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 12px;
+    border: 1px solid var(--primary);
+    background: transparent;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.lang-switch:hover {
+    background: var(--primary);
+    color: #0f766e;;
+}
