@@ -32,17 +32,42 @@ const messageInput = document.getElementById('chat-message-input');
 const sendBtn = document.getElementById('chat-send-btn');
 
 let chatId = localStorage.getItem('tayassar_chat_id');
+let autoReplyTimeout = null;
+let autoReplySent = false;
+
+// Add Welcome Badge dynamically
+const welcomeBadge = document.createElement('div');
+welcomeBadge.id = 'chat-welcome-badge';
+welcomeBadge.innerHTML = `
+    <div class="badge-content">
+        <span class="status-dot"></span>
+        <div class="badge-text">
+            <span class="badge-title">Questions? Chat with us live! 💬</span>
+            <span class="badge-subtitle">Active Support • We're online</span>
+        </div>
+    </div>
+`;
+chatWidget.appendChild(welcomeBadge);
+
+// When badge is clicked, open chat
+welcomeBadge.addEventListener('click', () => {
+    toggleBtn.click();
+});
 
 // Toggle Chat Window
 toggleBtn.addEventListener('click', () => {
     chatWindow.classList.add('active');
     toggleBtn.style.transform = 'scale(0)';
+    welcomeBadge.style.opacity = '0';
+    welcomeBadge.style.pointerEvents = 'none';
     checkSession();
 });
 
 closeBtn.addEventListener('click', () => {
     chatWindow.classList.remove('active');
     toggleBtn.style.transform = 'scale(1)';
+    welcomeBadge.style.opacity = '1';
+    welcomeBadge.style.pointerEvents = 'auto';
 });
 
 // Check if user already has an active session
@@ -94,6 +119,19 @@ regForm.addEventListener('submit', async (e) => {
     listenForMessages();
 });
 
+// Send Auto Reply
+async function sendAutoReply() {
+    if (!chatId || autoReplySent) return;
+    autoReplySent = true;
+    const messagesRef = ref(db, \`chats/\${chatId}/messages\`);
+    const newMessageRef = push(messagesRef);
+    await set(newMessageRef, {
+        sender: 'admin',
+        text: "Thanks for reaching out! 🌟 Our team is currently away or assisting other students. If we don't reply right away, please check back tomorrow or leave your email/phone so we can get back to you as soon as possible!",
+        timestamp: serverTimestamp()
+    });
+}
+
 // Send Message
 async function sendMessage() {
     const text = messageInput.value.trim();
@@ -101,7 +139,7 @@ async function sendMessage() {
     
     messageInput.value = '';
     
-    const messagesRef = ref(db, `chats/${chatId}/messages`);
+    const messagesRef = ref(db, \`chats/\${chatId}/messages\`);
     const newMessageRef = push(messagesRef);
     
     await set(newMessageRef, {
@@ -111,7 +149,13 @@ async function sendMessage() {
     });
     
     // Update lastActive status
-    set(ref(db, `chats/${chatId}/info/lastActive`), serverTimestamp());
+    set(ref(db, \`chats/\${chatId}/info/lastActive\`), serverTimestamp());
+
+    // Start auto-reply timer if not already sent
+    if (!autoReplySent) {
+        clearTimeout(autoReplyTimeout);
+        autoReplyTimeout = setTimeout(sendAutoReply, 60000); // 60 seconds
+    }
 }
 
 sendBtn.addEventListener('click', sendMessage);
@@ -125,9 +169,15 @@ function listenForMessages() {
     if (listening || !chatId) return;
     listening = true;
     
-    const messagesRef = ref(db, `chats/${chatId}/messages`);
+    const messagesRef = ref(db, \`chats/\${chatId}/messages\`);
     onChildAdded(messagesRef, (snapshot) => {
         const msg = snapshot.val();
+        
+        if (msg.sender === 'admin' && !autoReplySent) {
+            clearTimeout(autoReplyTimeout);
+            autoReplySent = true;
+        }
+
         displayMessage(msg.text, msg.sender);
     });
 }
