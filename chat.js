@@ -123,7 +123,7 @@ regForm.addEventListener('submit', async (e) => {
 async function sendAutoReply() {
     if (!chatId || autoReplySent) return;
     autoReplySent = true;
-    const messagesRef = ref(db, \`chats/\${chatId}/messages\`);
+    const messagesRef = ref(db, `chats/${chatId}/messages`);
     const newMessageRef = push(messagesRef);
     await set(newMessageRef, {
         sender: 'admin',
@@ -139,7 +139,7 @@ async function sendMessage() {
     
     messageInput.value = '';
     
-    const messagesRef = ref(db, \`chats/\${chatId}/messages\`);
+    const messagesRef = ref(db, `chats/${chatId}/messages`);
     const newMessageRef = push(messagesRef);
     
     await set(newMessageRef, {
@@ -149,7 +149,7 @@ async function sendMessage() {
     });
     
     // Update lastActive status
-    set(ref(db, \`chats/\${chatId}/info/lastActive\`), serverTimestamp());
+    set(ref(db, `chats/${chatId}/info/lastActive`), serverTimestamp());
 
     // Start auto-reply timer if not already sent
     if (!autoReplySent) {
@@ -169,7 +169,7 @@ function listenForMessages() {
     if (listening || !chatId) return;
     listening = true;
     
-    const messagesRef = ref(db, \`chats/\${chatId}/messages\`);
+    const messagesRef = ref(db, `chats/${chatId}/messages`);
     onChildAdded(messagesRef, (snapshot) => {
         const msg = snapshot.val();
         
